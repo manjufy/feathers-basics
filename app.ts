@@ -53,11 +53,15 @@ app.use('/messages', new MessageService());
 app.use(express.errorHandler());
 
 // Add any new real-time connection to the `everybody` channel
-app.on('connection', connection =>
-  app.channel('everybody').join(connection)
+app.on('connection', connection => {
+		return app.channel('everybody').join(connection);
+	}
 );
 // Publish all events to the `everybody` channel
-app.publish(data => app.channel('everybody'));
+app.publish(data => {
+	console.log('Data =>', data);
+	return app.channel('everybody');
+});
 
 // Start the server
 app.listen(3030).on('listening', () =>

@@ -8,4 +8,5 @@
     tsc --init --target es2018
     ts-node app.ts
 
-    Go to http://locahost:3030/messages
+    Go to hhttp://localhost:3030/messages
+    Go to http://localhost:3030/
